@@ -1,11 +1,12 @@
 package com.example.rapidrecall
 
 class User {
-    fun chooseSequenceLength(length: Int) {
-
+    private fun chooseSequenceLength(input: String): Int {
+        return input.toInt()
     }
 
-    fun enterSequence() {
-
+    private fun enterSequence(guess: String): List<Int> {
+        val guessSequence: List<Char> = guess.toList()
+        return guessSequence.map { it.digitToInt() }
     }
 }
