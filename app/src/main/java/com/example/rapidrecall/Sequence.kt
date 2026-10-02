@@ -1,5 +1,10 @@
 package com.example.rapidrecall
 
+/**
+ * Allows for creation of sequence with specified length.
+ * Sequence creation is handled in public method.
+ * Public method allows sequence to be accessed in list type.
+ */
 class Sequence(val length: Int) {
     private var sequence: List<Int> = listOf()
 
