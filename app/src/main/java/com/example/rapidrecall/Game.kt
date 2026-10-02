@@ -3,6 +3,7 @@ package com.example.rapidrecall
 /**
  * Data classes which are used to store data and don't require methods.
  * Values can be accessed using the dot operator on an instance.
+ * Default arguments were used so that class could be instantiated without parameters.
  */
 data class Attempt(val sequenceLength: Int = 0, val targetSequence: List<Int> = listOf(), val userInput: List<Int> = listOf(), val correct: Boolean = false)
 
