@@ -1,6 +1,6 @@
 package com.example.rapidrecall
 
-data class Attempt(val sequenceLength: Int, val targetSequence: List<Int>, val userInput: List<Int>, val correct: Boolean)
+data class Attempt(val sequenceLength: Int = 0, val targetSequence: List<Int> = listOf(), val userInput: List<Int> = listOf(), val correct: Boolean = false)
 
 data class Summary(val totalAttempts: Int, val totalCorrectAttempts: Int, val accuracy: Double)
 
@@ -27,11 +27,15 @@ class Game {
         return correct
     }
 
-    private fun recordAttempt(sequenceLength: Int, targetSequence: List<Int>, userInput: List<Int>, correct: Boolean): Attempt {
-        return Attempt(sequenceLength, targetSequence, userInput, correct)
+    fun recordAttempt(targetSequence: List<Int>, userInput: List<Int>): Attempt {
+        addRound()
+        return Attempt(targetSequence.size, targetSequence, userInput, correctGuess(targetSequence, userInput))
     }
 
-    private fun displaySummary(): Summary {
-        return Summary(roundsPlayed, correctGuesses, (roundsPlayed.toDouble() / correctGuesses.toDouble()))
+    fun displaySummary(): Summary {
+        var accuracy = 0.0
+        if (roundsPlayed > 0)
+            accuracy = (roundsPlayed.toDouble() / correctGuesses.toDouble())
+        return Summary(roundsPlayed, correctGuesses, accuracy)
     }
 }
