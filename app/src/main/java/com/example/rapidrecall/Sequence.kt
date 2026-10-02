@@ -5,7 +5,7 @@ package com.example.rapidrecall
  * Sequence creation is handled in public method.
  * Public method allows sequence to be accessed in list type.
  */
-class Sequence(val length: Int) {
+class Sequence(private val length: Int) {
     private var sequence: List<Int> = listOf()
 
     fun createSequence() {
